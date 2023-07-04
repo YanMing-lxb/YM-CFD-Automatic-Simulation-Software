@@ -1,35 +1,58 @@
 ﻿/file/set-tui-version ,
-file/read-case 输入
-mesh/repair-improve/improve-quality
-/define/boundary-conditions/modify-zones/zone-type inlet velocity-inlet
-/define/boundary-conditions/modify-zones/zone-type outlet outflow
+/file/read-case 输入
+/mesh/repair-improve/improve-quality
 /mesh/scale 0.001 0.001 0.001
-/defin/models/solver/pressure-based yes
+/define/models/solver/pressure-based yes
 /define/operating-conditions/gravity yes 0 -9.8 0
 /define/units temperature 温度单位
-流速
-发热功率
 /define/models/energy yes no no no yes
 /define/models/viscous/ke-realizable? yes
-/define/materials/copy fluid water-liquid
+
 /define/materials/copy solid copper
-/define/materials/copy solid steel
-/define/materials/change-create steel taoci yes constant 3650 yes constant 720 yes constant 20 no yes constant 5.5e-6 yes 1.26e-6 yes
-/define/boundary-conditions/set/fluid fluid () material yes water-liquid q
-/define/boundary-conditions/set/solid hot () material yes taoci q
-/define/boundary-conditions/set/solid *cu* () material yes copper q
-/define/materials/change-create water-liquid , yes constant 密度 yes constant 比热容 yes expression "导热系数" yes constant 黏度 no no no
-/define/boundary-conditions/solid hot no yes 1 yes 功率 no no no 0 no 0 no 0 no 0 no 0 no 1 no no
-/define/boundary-conditions/velocity-inlet inlet , , , , , 流速 , , , 入口温度 , , , , , , , , , , , , , ,
+/define/materials/copy solid wood
+/define/materials/change-create wood ltcc yes constant 2500 yes constant 837 yes constant 2 yes
+/define/materials/copy solid wood
+/define/materials/change-create wood alumina-96 yes constant 3800 yes constant 880 yes constant 25 yes
+/define/materials/copy solid wood
+/define/materials/change-create wood pmma yes constant 1190 yes constant 1465.38 yes constant 2.422 yes
+/define/materials/copy fluid water-liquid
+/define/materials/change-create water-liquid , yes piecewise-polynomial 2 200 373.15 5 -3452.116172 53.06299771 -0.2359511465 0.0004665629600 -3.496e-7 373.15 3000 1 957.791009 yes piecewise-polynomial 2 200 373.15 6 211089.7906 -3087.048747 18.41069897 -0.05485248541 0.000081618875 -4.85e-8 373.15 3000 1 4217.8010 yes piecewise-polynomial 2 200 373.15 5 0.9255060336 -0.01101052057 0.00006799157703 -1.4868044e-7 1.094e-10 373.15 3000 1 0.680089999 yes piecewise-polynomial 2 200 373.15 6 1.614454190 -0.02359913949 0.0001384864228 -4.07264551e-7 5.99692625e-10 -3.535e-13 373.15 3000 1 0.000276997 no no no
+
+/define/boundary-conditions/zone-type fluid* () fluid
+/define/boundary-conditions/set/fluid fluid* () material yes water-liquid q
+/define/boundary-conditions/set/solid ttc* () material yes alumina-96 q
+/define/boundary-conditions/set/solid embed* () material yes copper q
+/define/boundary-conditions/set/solid ltcc () material yes ltcc q
+/define/boundary-conditions/zone-type part:fluid:part:fluid_out* () interior
+/define/boundary-conditions/modify-zones/zone-type ns_inlet velocity-inlet
+/define/boundary-conditions/modify-zones/zone-type ns_outlet pressure-outlet
+
+/define/boundary-conditions/velocity-inlet ns_inlet no no yes yes no 流速 no 0 no 环境温度 , , , , , 
+/define/boundary-conditions/pressure-outlet ns_outlet , , , , 环境温度 , , , , , , , , , , ,
+/define/boundary-conditions/wall part:ttc-1- 0 no 0 yes alumina-96 yes convection no 10 no 环境温度 no no 1 
+/define/boundary-conditions/wall part:ttc-2- 0 no 0 yes alumina-96 yes convection no 10 no 环境温度 no no 1 
+/define/boundary-conditions/wall part:ttc-3- 0 no 0 yes alumina-96 yes convection no 10 no 环境温度 no no 1 
+/define/boundary-conditions/wall part:ttc-4- 0 no 0 yes alumina-96 yes convection no 10 no 环境温度 no no 1 
+/define/boundary-conditions/wall ns_ttc-1-up 0 no 0 yes alumina-96 yes convection no 10 no 环境温度 no no 1 
+/define/boundary-conditions/wall ns_ttc-2-up 0 no 0 yes alumina-96 yes convection no 10 no 环境温度 no no 1 
+/define/boundary-conditions/wall ns_ttc-3-up 0 no 0 yes alumina-96 yes convection no 10 no 环境温度 no no 1 
+/define/boundary-conditions/wall ns_ttc-4-up 0 no 0 yes alumina-96 yes convection no 10 no 环境温度 no no 1 
+/define/boundary-conditions/wall part:ltcc 0 no 0 yes ltcc yes convection no 10 no 环境温度 no no 1
+/define/boundary-conditions/wall ns_ltcc-down 0 no 0 yes ltcc yes convection no 10 no 环境温度 no no 1 
+/define/boundary-conditions/solid ttc-1- no yes 1 yes 200000000 no no no 0 no 0 no 0 no 0 no 0 no 1 no no
+/define/boundary-conditions/solid ttc-2- no yes 1 yes 200000000 no no no 0 no 0 no 0 no 0 no 0 no 1 no no
+/define/boundary-conditions/solid ttc-3- no yes 1 yes 200000000 no no no 0 no 0 no 0 no 0 no 0 no 1 no no
+/define/boundary-conditions/solid ttc-4- no yes 1 yes 200000000 no no no 0 no 0 no 0 no 0 no 0 no 1 no no
 /solve/set/p-v-coupling 21
-/solve/monitors/residual/convergence-criteria 1.5e-6 1e-6 1e-6 1e-6 1e-6 1e-6 1e-6
-/solve/initialize/compute-defaults/velocity-inlet inlet
-/solve/initialize/set-defaults/ x-velocity 0 y-velocity -流速 z-velocity 0 k 环境温度 
+/solve/set/discretization-scheme/ pressure 12 mom 1 k 1 epsilon 1 
+/solve/initialize/compute-defaults/velocity-inlet ns_inlet
+/solve/initialize/set-defaults/ x-velocity 0 y-velocity 流速 z-velocity 0 temperature 环境温度 
 /solve/initialize/initialize-flow
-/solve/patch *cu* ai_down ai_down fluid hot () temperature 环境温度
-/solve/set/reporting-interval 1
+/solve/patch * () temperature 环境温度
+/solve/set/reporting-interval 5
+/file/data-file-options heat-transfer-coef skin-friction-coef nusselt-number specific-heat-cp thermal-conductivity-eff viscosity-eff ()
 /solve/iterate 迭代次数
-/file/write-case-data OUTLJ
-/file/export/cdat-for-cfd-post-&-ensight OUTLJ * () * () pressure density nusselt-number temperature heat-transfer-coef x-velocity y-velocity z-velocity velocity-magnitude () no yes 
+/file/cff-files? no
+/file/write-case-data 输出
+/file/export/tecplot 输出 * () temperature pressure density velocity-magnitude x-velocity y-velocity z-velocity heat-flux heat-transfer-coef heat-transfer-coef-wall nusselt-number ()
 /exit ok
-输出
