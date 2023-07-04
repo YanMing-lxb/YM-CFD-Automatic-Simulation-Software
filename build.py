@@ -15,7 +15,7 @@
 
 Author       : 焱铭
 Date         : 2023-07-03 16:04:04 +0800
-LastEditTime : 2023-07-04 15:46:07 +0800
+LastEditTime : 2023-07-04 15:52:48 +0800
 Github       : https://github.com/YanMing-lxb/
 FilePath     : \CFD-Automatic-Simulation-Software\build.py
 Description  : 
@@ -43,8 +43,8 @@ def move_file(res_folder, file_name, des_folder):
     shutil.move(res_file_path, des_file_path)
     print(f"已将文件 {file_name}.exe 从{res_folder}移动到 {des_folder} 文件夹。")
 
-def build_pyinstaller(exe_name, resource, icon_pic):
 
+def build_pyinstaller(exe_name, resource, icon_pic):
     args1 = [
         'main.py',  # 要打包的主程序文件
         '-w',  # 指定为窗口应用程序（无命令行界面）
