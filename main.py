@@ -15,7 +15,7 @@
 
 Author       : 焱铭
 Date         : 2022-08-25 19:20:39 +0800
-LastEditTime : 2023-07-04 14:58:20 +0800
+LastEditTime : 2023-07-04 15:41:21 +0800
 Github       : https://github.com/YanMing-lxb/
 FilePath     : \CFD-Automatic-Simulation-Software\main.py
 Description  : 
@@ -526,11 +526,10 @@ class Calculate(object):
         self.Search_Scripts(self.scripts_path, ".log", "Mesh-", 0)  # 检索fluent meshing脚本，并添加进数组中
         for i in range(len(self.scripts_list[0])):
             progress("网格划分", len(self.scripts_list[0]), i + 1)
-            command = "fluent 3d -meshing -tm" + self.core_num + " -t" + self.core_num + " -g -wait -i " + \
-                      self.scripts_list[0][i]
+            command = f"fluent 3d -meshing -tm{self.core_num} -t{self.core_num} -g -wait -i {self.scripts_list[0][i]}"
             com = str(command + " &&exit")
             a = subprocess.Popen(com, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                 stdin=subprocess.DEVNULL)
+                                 stdin=subprocess.DEVNULL, text=True)
             for u in iter(a.stdout.readline, b""):
                 window['state_print'].print('{:0>2d}* '.format(i + 1) + u.decode().strip())
             name = os.path.basename(self.scripts_list[0][i])
@@ -547,10 +546,10 @@ class Calculate(object):
         self.Search_Scripts(self.scripts_path, ".log", "Fluent-", 1)  # 检索fluent脚本，并添加进数组中
         for i in range(len(self.scripts_list[1])):
             progress("求解计算", len(self.scripts_list[1]), i + 1)
-            command = "fluent 3d -t" + self.core_num + " -g -wait -i " + self.scripts_list[1][i] # 3ddp为双精度
+            command = f"fluent 3d -t{self.core_num} -g -wait -i {self.scripts_list[1][i]}" # 3ddp为双精度
             com = str(command + " &&exit")
             a = subprocess.Popen(com, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                 stdin=subprocess.DEVNULL)  # 此时打开的a是一个对象，如果直接打印的话是对象内存地址
+                                 stdin=subprocess.DEVNULL, text=True)  # 此时打开的a是一个对象，如果直接打印的话是对象内存地址
             terminal_record = open(self.scripts_path + '/Fluent终端记录.txt', 'a+', encoding='utf-8')
             for u in iter(a.stdout.readline, b""):
                 window['state_print'].print('{:0>2d}* '.format(i + 1) + u.decode().strip())
@@ -869,8 +868,6 @@ class Run(object):
         window['state_print'].print('本次运行结束', text_color='red')
         sg.cprint('本次运行结束', text_color='red')
 
-    
-
 
 sg.theme('darkbrown4')
 # 2) 定义布局，确定行数
@@ -1083,3 +1080,6 @@ window.close()
 
 # V4.1.2 2022/8/25 19:50
 # 发现CFDPost在读取excel时会自动将数字用科学计数法保留两位小数，这导致数据的精度不够。因此做了一些改动，将原先的全部后处理完再转移数据的形式，改为每处理完一组就进行数据转移至实验规划表。
+
+# V4.1.3 2023/6/10 20:48
+# 尝试解决Fluent 2023R1 打印不出控制台信息的问题 主要修改subprocess.Popen命令
