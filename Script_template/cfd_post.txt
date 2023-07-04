@@ -1,0 +1,1101 @@
+# Session file started:  2021/08/08 18:28:55
+# CFX-20.2
+
+# To avoid unnecessary file pre-processing and modifications, include
+# COMMAND FILE at the top of your session file.
+# If it is not included, the file is assumed to be older and will be
+# modified for backward compatibility.
+COMMAND FILE:
+  CFX Post Version = 20.2
+END
+
+DATA READER:
+  Clear All Objects = false
+  Append Results = false
+  Edit Case Names = false
+  Multi Configuration File Load Option = Last Case
+  Open in New View = true
+  Keep Camera Position = true
+  Load Particle Tracks = true
+  Multi Configuration File Load Option = Last Case
+  Construct Variables From Fourier Coefficients = true
+  Open to Compare = false
+  Files to Compare =
+END
+
+>load filename=fluent结果文件路径, \
+force_reload=true
+
+>setPreferences Custom Units Setting = \
+Angle&degree&Force&N&Length&m&Mass&kg&Pressure&Pa&Temperature&温度单位&Time&s&Velocity&m \
+s^-1&Acceleration&m s^-2&Angular Velocity&radian s^-1&Angular \
+Acceleration&radian s^-2&Area&m^2&Chemical \
+Amount&mol&Compressibility&Pa^-1&Concentration&m^-3&Contact Resistance&m^2 s \
+kg^-1&Current&A&Decay Constant&s^-1&Density&kg m^-3&Density Derivative wrt \
+Pressure&m^-2 s^2&Density Derivative wrt Temperature&kg m^-3 温度单位^-1&Dielectric \
+Contact Resistance&F^-1 m^2&Dynamic Viscosity&Pa s&Electric Charge&A s&Electric \
+Charge Density&A s m^-3&Electric Charge Transfer Coefficient&F m^-2&Electric \
+Current Density&A m^-2&Electric Current Transfer Coefficient&A m^-2 \
+V^-1&Electric Current Source&A m^-3&Electric Field&V m^-1&Electrical \
+Conductivity&S m^-1&Electrical Contact Resistance&ohm m^2&Electrical \
+Permittivity&A s V^-1 m^-1&Electrical Resistivity&ohm m&Energy&J&Energy Source&W \
+m^-3&Energy Source Coefficient&W m^-3 温度单位^-1&Enthalpy Variance&m^4 \
+s^-4&Epsilon&m^2 s^-3&Epsilon Flux&W m^-2 s^-1&Epsilon Flux Coefficient&kg m^-2 \
+s^-2&Epsilon Source&W m^-3 s^-1&Epsilon Source Coefficient&kg m^-3 s^-2&Flame \
+Surface Density Source&m^-1 s^-1&Fracture Energy&J m^-2&Frequency&Hz&Heat Flux \
+in&W m^-2&Heat Transfer Coefficient&W m^-2 温度单位^-1&Interphase Transfer \
+Coefficient&kg m^-2 s^-1&Inverse Angle&degree^-1&Inverse Area&m^-2&Inverse \
+Length&m^-1&k&m^2 s^-2&k Flux&W m^-2&k Flux Coefficient&kg m^-2 s^-1&k Source&W \
+m^-3&k Source Coefficient&kg m^-3 s^-1&Kinematic Diffusivity&m^2 \
+s^-1&Luminance&cd&Magnetic Field&A m^-1&Magnetic Flux&Wb&Magnetic Flux \
+Density&T&Magnetic Induction&T&Magnetic Potential&T m&Magnetic Permeability&H \
+m^-1&Mass Concentration&kg m^-3&Mass Concentration Rate&kg m^-3 s^-1&Mass \
+Flow&kg s^-1&Mass Flow in&kg s^-1&Mass Flux&kg s^-1 m^-2&Mass Flux \
+Coefficient&kg s^-1 m^-2&Mass Flux Pressure Coefficient&kg s^-1 m^-2 Pa^-1&Mass \
+Fraction&kg kg^-1&Mass Moment of Inertia&kg m^2&Mass Source&kg s^-1 m^-3&Mass \
+Source Coefficient&kg s^-1 m^-3&Mass Source Pressure Coefficient&kg s^-1 m^-3 \
+Pa^-1&Total Mass Source Pressure Coefficient&kg s^-1 Pa^-1&Molar \
+Concentration&mol m^-3&Molar Concentration Henry Coefficient&Pa m^3 mol^-1&Molar \
+Concentration Rate&mol m^-3 s^-1&Molar Energy&J mol^-1&Molar Entropy&J mol^-1 \
+温度单位^-1&Molar Fraction&mol mol^-1&Molar Mass&kg kmol^-1&Molar Volume&m^3 \
+mol^-1&Moment&N m&Momentum Source&kg m^-2 s^-2&Momentum Source Lin Coeff&kg m^-3 \
+s^-1&Momentum Source Quad Coeff&kg m^-4&Money&GBP&Omega Source&kg m^-3 s^-2&Per \
+Mass&kg^-1&Per Mass Flow&s kg^-1&Per Time&s^-1&Pressure Derivative wrt \
+Temperature&Pa 温度单位^-1&Pressure Derivative wrt Volume&Pa kg m^-3&Power&W&Shear \
+Strain Rate&s^-1&Shock Velocity&s m^-1&Solid Angle&sr&Soot Cross Coefficient&m^3 \
+mol^-1 s^-1&Soot PX Factor&mol^1 kg^-1 s^-1&Specific&kg kg^-1&Specific \
+Concentration&mol kg^-1&Specific Energy&J kg^-1&Specific Enthalpy&J \
+kg^-1&Specific Entropy&J kg^-1 温度单位^-1&Specific Flame Surface Density&m^2 \
+kg^-1&Specific Heat Capacity&J kg^-1 温度单位^-1&Specific Volume&kg^-1 m^3&Surface \
+Charge Density&A s m^-2&Surface Tension&N \
+m^-1&InvTemp1&温度单位^-1&InvTemp2&温度单位^-2&InvTemp3&温度单位^-3&InvTemp4&温度单位^-4&Temperature \
+Variance&温度单位^2&Temperature Variance Source&kg m^-3 s^-1 温度单位^2&Thermal Conductivity&W \
+m^-1 温度单位^-1&Thermal Contact Resistance&W^-1 m^2 温度单位&Thermal \
+Expansivity&温度单位^-1&Torque&N m&Torsional Spring Constant&N m radian^-1&Total \
+Radiative Intensity&W m^-2 sr^-1&Turbulent Heat Flux&m^3 \
+s^-3&Voltage&V&Volume&m^3&Volumetric&kg m^-3&Volumetric Flow&m^3 s^-1&Volumetric \
+Flow in&m^3 s^-1&Number Source&m^-3 s^-1, Viewer Background Image File =
+
+
+PLANE:midplane
+  Apply Instancing Transform = On
+  Apply Texture = Off
+  Blend Texture = On
+  Bound Radius = 0.5 [m]
+  Colour = 0.75, 0.75, 0.75
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable = Pressure
+  Colour Variable Boundary Values = Conservative
+  Culling Mode = No Culling
+  Direction 1 Bound = 1.0 [m]
+  Direction 1 Orientation = 0 [degree]
+  Direction 1 Points = 10
+  Direction 2 Bound = 1.0 [m]
+  Direction 2 Points = 10
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Faces = On
+  Draw Lines = Off
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Invert Plane Bound = Off
+  Lighting = On
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Max = 0.0
+  Min = 0.0
+  Normal = 1 , 0 , 0
+  Option = ZX Plane
+  Plane Bound = None
+  Plane Type = Slice
+  Point = 0 [mm], 0 [mm], 0 [mm]
+  Point 1 = 0 [mm], 0 [mm], 0 [mm]
+  Point 2 = 1 [mm], 0 [mm], 0 [mm]
+  Point 3 = 0 [mm], 1 [mm], 0 [mm]
+  Range = Global
+  Render Edge Angle = 0 [degree]
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Texture Angle = 0
+  Texture Direction = 0 , 1 , 0
+  Texture File =
+  Texture Material = Metal
+  Texture Position = 0 , 0
+  Texture Scale = 1
+  Texture Type = Predefined
+  Tile Texture = Off
+  Transform Texture = Off
+  Transparency = 0.0
+  X = 0.0 [mm]
+  Y = 0.0 [mm]
+  Z = 0.0 [mm]
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+
+USER VECTOR VARIABLE:Temperature.Gradient
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Recipe = Gradient
+  Variable to Copy = Pressure
+  Variable to Gradient = Temperature
+END
+
+USER VECTOR VARIABLE:Pressure.Gradient
+  Boundary Values = Conservative
+  Calculate Global Range = Off
+  Recipe = Gradient
+  Variable to Copy = Pressure
+  Variable to Gradient = Pressure
+END
+
+POINT:hotface Point 
+  Apply Instancing Transform = On
+  Colour = 1, 1, 0
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable = Pressure
+  Colour Variable Boundary Values = Conservative
+  Culling Mode = No Culling
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Faces = On
+  Draw Lines = Off
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Width = 2
+  Max = 0.0
+  Min = 0.0
+  Node Number = 1
+  Option = XYZ
+  Point = 14.5 [mm], -1.9 [mm], 10.4 [mm]
+  Point Symbol = Crosshair
+  Range = Global
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Symbol Size = 1.0
+  Transparency = 0.0
+  Variable = Pressure
+  Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+POINT:hotfacedown Point 
+  Apply Instancing Transform = On
+  Colour = 1, 1, 0
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable = Pressure
+  Colour Variable Boundary Values = Conservative
+  Culling Mode = No Culling
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Faces = On
+  Draw Lines = Off
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Width = 2
+  Max = 0.0
+  Min = 0.0
+  Node Number = 1
+  Option = XYZ
+  Point = 14.5 [mm], -3.9 [mm], 10.4 [mm]
+  Point Symbol = Crosshair
+  Range = Global
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Symbol Size = 1.0
+  Transparency = 0.0
+  Variable = Pressure
+  Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+POINT:aiface Point 
+  Apply Instancing Transform = On
+  Colour = 1, 1, 0
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable = Pressure
+  Colour Variable Boundary Values = Conservative
+  Culling Mode = No Culling
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Faces = On
+  Draw Lines = Off
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Width = 2
+  Max = 0.0
+  Min = 0.0
+  Node Number = 1
+  Option = XYZ
+  Point = 14.5 [mm], 3.1 [mm], 10.4 [mm]
+  Point Symbol = Crosshair
+  Range = Global
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Symbol Size = 1.0
+  Transparency = 0.0
+  Variable = Pressure
+  Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+POINT:up Point 
+  Apply Instancing Transform = On
+  Colour = 1, 1, 0
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable = Pressure
+  Colour Variable Boundary Values = Conservative
+  Culling Mode = No Culling
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Faces = On
+  Draw Lines = Off
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Width = 2
+  Max = 0.0
+  Min = 0.0
+  Node Number = 1
+  Option = XYZ
+  Point = 14.5 [mm], -1.9 [mm], -5.6 [mm]
+  Point Symbol = Crosshair
+  Range = Global
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Symbol Size = 1.0
+  Transparency = 0.0
+  Variable = Pressure
+  Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+POINT:down Point 
+  Apply Instancing Transform = On
+  Colour = 1, 1, 0
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable = Pressure
+  Colour Variable Boundary Values = Conservative
+  Culling Mode = No Culling
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Faces = On
+  Draw Lines = Off
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Width = 2
+  Max = 0.0
+  Min = 0.0
+  Node Number = 1
+  Option = XYZ
+  Point = 14.5 [mm], -1.9 [mm], 26.4 [mm]
+  Point Symbol = Crosshair
+  Range = Global
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Symbol Size = 1.0
+  Transparency = 0.0
+  Variable = Pressure
+  Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+POINT:left Point 
+  Apply Instancing Transform = On
+  Colour = 1, 1, 0
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable = Pressure
+  Colour Variable Boundary Values = Conservative
+  Culling Mode = No Culling
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Faces = On
+  Draw Lines = Off
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Width = 2
+  Max = 0.0
+  Min = 0.0
+  Node Number = 1
+  Option = XYZ
+  Point = -1.5 [mm], -1.9 [mm], 10.4 [mm]
+  Point Symbol = Crosshair
+  Range = Global
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Symbol Size = 1.0
+  Transparency = 0.0
+  Variable = Pressure
+  Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+POINT:right Point 
+  Apply Instancing Transform = On
+  Colour = 1, 1, 0
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable = Pressure
+  Colour Variable Boundary Values = Conservative
+  Culling Mode = No Culling
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Faces = On
+  Draw Lines = Off
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Width = 2
+  Max = 0.0
+  Min = 0.0
+  Node Number = 1
+  Option = XYZ
+  Point = 30.5 [mm], -1.9 [mm], 10.4 [mm]
+  Point Symbol = Crosshair
+  Range = Global
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Symbol Size = 1.0
+  Transparency = 0.0
+  Variable = Pressure
+  Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+CONTOUR:mid temp G
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Temperature.Gradient
+  Colour Variable Boundary Values = Conservative
+  Constant Contour Colour = Off
+  Contour Range = Local
+  Culling Mode = No Culling
+  Domain List = fluid
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = /PLANE:midplane
+  Max = 0.0 [mm^-1 C]
+  Min = 0.0 [mm^-1 C]
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = Off
+  Value List = 0 [Pa],1 [Pa]
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+
+CONTOUR:mid press G
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Pressure.Gradient
+  Colour Variable Boundary Values = Conservative
+  Constant Contour Colour = Off
+  Contour Range = Local
+  Culling Mode = No Culling
+  Domain List = fluid
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = /PLANE:midplane
+  Max = 0.0 [kg m^-2 s^-2]
+  Min = 0.0 [kg m^-2 s^-2]
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = Off
+  Value List = 0 [Pa],1 [Pa]
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+
+CONTOUR:mid press
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Pressure
+  Colour Variable Boundary Values = Conservative
+  Constant Contour Colour = Off
+  Contour Range = Local
+  Culling Mode = No Culling
+  Domain List = fluid
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = /PLANE:midplane
+  Max = 0.0 [kg m^-2 s^-2]
+  Min = 0.0 [kg m^-2 s^-2]
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = Off
+  Value List = 0 [Pa],1 [Pa]
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+CONTOUR:hotface temp G
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Temperature.Gradient
+  Colour Variable Boundary Values = Conservative
+  Constant Contour Colour = Off
+  Contour Range = Local
+  Culling Mode = No Culling
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = hotface
+  Max = 0.0 [mm^-1 C]
+  Min = 0.0 [mm^-1 C]
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = Off
+  Value List = 0 [Pa],1 [Pa]
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+CONTOUR:aiface temp G
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Temperature.Gradient
+  Colour Variable Boundary Values = Conservative
+  Constant Contour Colour = Off
+  Contour Range = Local
+  Culling Mode = No Culling
+  Domain List = /DOMAIN GROUP:All Domains
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = aiface
+  Max = 0.0 [mm^-1 C]
+  Min = 0.0 [mm^-1 C]
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = Off
+  Value List = 0 [Pa],1 [Pa]
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+
+CONTOUR: aiface temp
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Temperature
+  Colour Variable Boundary Values = Conservative
+  Constant Contour Colour = Off
+  Contour Range = Global
+  Culling Mode = No Culling
+  Domain List = ai_up
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = aiface
+  Max = 0.0 [K]
+  Min = 0.0 [K]
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = Off
+  Value List = 0 [K],1 [K]
+  Visibility = Off
+  OBJECT VIEW TRANSFORM: 
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+CONTOUR: hotface temp
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Temperature
+  Colour Variable Boundary Values = Conservative
+  Constant Contour Colour = Off
+  Contour Range = Global
+  Culling Mode = No Culling
+  Domain List = hot
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+  Lighting = On
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = hotface
+  Max = 0.0 [K]
+  Min = 0.0 [K]
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = Off
+  Value List = 0 [K],1 [K]
+  Visibility = Off
+  OBJECT VIEW TRANSFORM: 
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis To = 0 [mm], 0 [mm], 0 [mm]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1
+    Translation Vector = 0 [mm], 0 [mm], 0 [mm]
+    X = 0.0 [mm]
+    Y = 0.0 [mm]
+    Z = 0.0 [mm]
+  END
+END
+
+
+
+>table load=结果表路径, name=Table 1
+
+TABLE:Table 1
+  TABLE CELLS:
+    A序号 = "=fileInfo( "filename", "" )", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    B序号 = "=ave(Temperature)@outlet-ave(Temperature)@inlet ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    C序号 = "=ave(Pressure)@inlet-ave(Pressure)@outlet ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    D序号 = "=ave(Temperature)@hotface ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    E序号 = "=maxVal(Temperature)@hotface ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    F序号 = "=minVal(Temperature)@hotface ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    G序号= "=ave(Temperature)@aiface ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    H序号 = "=maxVal(Temperature)@aiface ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    I序号 = "=minVal(Temperature)@aiface ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    J序号 = "=ave(Surface Heat Transfer Coefficient)@fluid ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    K序号 = "=ave(Surface Nusselt Number)@fluid ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    L序号 = "=ave(Velocity )@outlet ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    M序号 = "=probe(Temperature )@aiface Point", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    N序号 = "=probe(Temperature )@hotface Point ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    O序号 = "=probe(Temperature )@hotfacedown Point ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    P序号 = "=probe(Temperature )@left Point ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    Q序号 = "=probe(Temperature )@right Point ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    R序号 = "=probe(Temperature )@up Point ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    S序号 = "=probe(Temperature )@down Point ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+    T序号 = "=ave(Velocity)@fluid ", False, False, False, Left, False, 0, \
+Font Name, 1|1, %10.3e, True, ffffff, 000000, True
+
+  END
+END
+
+
+TABLE:Table 1
+  Export Table Only = True
+  Table Export HTML Title =
+  Table Export HTML Caption Position = Bottom
+  Table Export HTML Caption =
+  Table Export HTML Border Width = 1
+  Table Export HTML Cell Padding = 5
+  Table Export HTML Cell Spacing = 1
+  Table Export Lines = All
+  Table Export Trailing Separators = True
+  Table Export Separator = Tab
+END
+>table save=结果表路径, name=Table 1
+
+
+
+
+VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.014, -0.0004, 0.01
+    Scale = 42
+    Pan = 0, 0
+    Rotation Quaternion = -4.32978e-17, 0.707107, 0.707107, 4.32978e-17
+  END
+
+END
+
+
+
+
+# Sending visibility action from ViewUtilities
+>show /CONTOUR:aiface temp, view=/VIEW:View 1
+
+> update
+HARDCOPY:
+  Antialiasing = On
+  Hardcopy Filename = 云图输出路径aiface temp.png
+  Hardcopy Format = png
+  Hardcopy Tolerance = 0.0001
+  Image Height = 750
+  Image Scale = 100
+  Image Width = 600
+  JPEG Image Quality = 80
+  Screen Capture = Off
+  Use Screen Size = On
+  White Background = On
+END
+>print
+
+# Sending visibility action from ViewUtilities
+>hide /CONTOUR:aiface temp, view=/VIEW:View 1
+
+
+# Sending visibility action from ViewUtilities
+>show /CONTOUR:aiface temp G, view=/VIEW:View 1
+
+> update
+HARDCOPY:
+  Antialiasing = On
+  Hardcopy Filename = 云图输出路径aiface temp G.png
+  Hardcopy Format = png
+  Hardcopy Tolerance = 0.0001
+  Image Height = 750
+  Image Scale = 100
+  Image Width = 600
+  JPEG Image Quality = 80
+  Screen Capture = Off
+  Use Screen Size = On
+  White Background = On
+END
+>print
+
+# Sending visibility action from ViewUtilities
+>hide /CONTOUR:aiface temp G, view=/VIEW:View 1
+
+# Sending visibility action from ViewUtilities
+>show /CONTOUR:hotface temp, view=/VIEW:View 1
+
+> update
+HARDCOPY:
+  Antialiasing = On
+  Hardcopy Filename = 云图输出路径hotface temp.png
+  Hardcopy Format = png
+  Hardcopy Tolerance = 0.0001
+  Image Height = 750
+  Image Scale = 100
+  Image Width = 600
+  JPEG Image Quality = 80
+  Screen Capture = Off
+  Use Screen Size = On
+  White Background = On
+END
+>print
+
+# Sending visibility action from ViewUtilities
+>hide /CONTOUR:hotface temp, view=/VIEW:View 1
+
+# Sending visibility action from ViewUtilities
+>show /CONTOUR:hotface temp G, view=/VIEW:View 1
+
+> update
+HARDCOPY:
+  Antialiasing = On
+  Hardcopy Filename = 云图输出路径hotface temp G.png
+  Hardcopy Format = png
+  Hardcopy Tolerance = 0.0001
+  Image Height = 750
+  Image Scale = 100
+  Image Width = 600
+  JPEG Image Quality = 80
+  Screen Capture = Off
+  Use Screen Size = On
+  White Background = On
+END
+>print
+
+# Sending visibility action from ViewUtilities
+>hide /CONTOUR:hotface temp G, view=/VIEW:View 1
+
+# Sending visibility action from ViewUtilities
+>show /CONTOUR:mid press, view=/VIEW:View 1
+
+> update
+HARDCOPY:
+  Antialiasing = On
+  Hardcopy Filename = 云图输出路径mid press.png
+  Hardcopy Format = png
+  Hardcopy Tolerance = 0.0001
+  Image Height = 750
+  Image Scale = 100
+  Image Width = 600
+  JPEG Image Quality = 80
+  Screen Capture = Off
+  Use Screen Size = On
+  White Background = On
+END
+>print
+
+# Sending visibility action from ViewUtilities
+>hide /CONTOUR:mid press, view=/VIEW:View 1
+
+# Sending visibility action from ViewUtilities
+>show /CONTOUR:mid press G, view=/VIEW:View 1
+
+> update
+HARDCOPY:
+  Antialiasing = On
+  Hardcopy Filename = 云图输出路径mid press G.png
+  Hardcopy Format = png
+  Hardcopy Tolerance = 0.0001
+  Image Height = 750
+  Image Scale = 100
+  Image Width = 600
+  JPEG Image Quality = 80
+  Screen Capture = Off
+  Use Screen Size = On
+  White Background = On
+END
+>print
+
+# Sending visibility action from ViewUtilities
+>hide /CONTOUR:mid press G, view=/VIEW:View 1
+
+# Sending visibility action from ViewUtilities
+>show /CONTOUR:mid temp G, view=/VIEW:View 1
+
+> update
+HARDCOPY:
+  Antialiasing = On
+  Hardcopy Filename = 云图输出路径mid temp G.png
+  Hardcopy Format = png
+  Hardcopy Tolerance = 0.0001
+  Image Height = 750
+  Image Scale = 100
+  Image Width = 600
+  JPEG Image Quality = 80
+  Screen Capture = Off
+  Use Screen Size = On
+  White Background = On
+END
+>print
+
+# Sending visibility action from ViewUtilities
+>hide /CONTOUR:mid temp G, view=/VIEW:View 1
+
+
+
+>animate close
+>quit

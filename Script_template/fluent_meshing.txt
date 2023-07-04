@@ -1,0 +1,21 @@
+﻿/file/set-tui-version ,
+
+/file/import/cad-geometry yes INLJ mm cfd-surface-mesh no 0.08 5 1.2  no yes 3 edges n
+
+输入
+
+当量直径
+/objects/labels/rename sr sr:fluid fluid
+/objects/labels/rename sr sr:ai_down ai_down
+/objects/labels/rename sr sr:ai_up ai_up
+/objects/labels/rename sr sr:hot hot
+/objects/rename-object sr wtd
+/objects/volumetric-regions/compute wtd no
+/objects/volumetric-regions/change-type wtd fluid () fluid
+/objects/volumetric-regions/scoped-prism/set/create one-control aspect-ratio 5 2 1.2 wtd fluid-regions solid-fluid-interface ,
+/mesh/auto-mesh wtd yes scoped pyramids poly yes
+file/write-mesh OUTLJ 
+exit ok
+
+输出
+
