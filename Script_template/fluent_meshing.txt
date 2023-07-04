@@ -1,21 +1,30 @@
 ﻿/file/set-tui-version ,
+/file/import/cad-geometry yes 输入 mm cfd-surface-mesh no 0.005 1.5 1.2 yes yes 10 3 edges no no 
 
-/file/import/cad-geometry yes INLJ mm cfd-surface-mesh no 0.08 5 1.2  no yes 3 edges n
+/scoped-sizing/create control-local-fluid curvature face-zone no yes *part:fluid* 0.01 0.14 1.2 3
 
-输入
-
-当量直径
-/objects/labels/rename sr sr:fluid fluid
-/objects/labels/rename sr sr:ai_down ai_down
-/objects/labels/rename sr sr:ai_up ai_up
-/objects/labels/rename sr sr:hot hot
-/objects/rename-object sr wtd
-/objects/volumetric-regions/compute wtd no
-/objects/volumetric-regions/change-type wtd fluid () fluid
-/objects/volumetric-regions/scoped-prism/set/create one-control aspect-ratio 5 2 1.2 wtd fluid-regions solid-fluid-interface ,
-/mesh/auto-mesh wtd yes scoped pyramids poly yes
-file/write-mesh OUTLJ 
-exit ok
-
-输出
+/scoped-sizing/compute
+/objects/improve-object-quality * () surface-remesh
+/diagnostics/quality/smooth face-zones * () 10 yes
+/diagnostics/quality/collapse face-zones * () skewness 0.6 100 10 yes
+/objects/labels/rename part part:fluid fluid
+/objects/labels/rename part part:fluid_out-1- fluid_out-1-
+/objects/labels/rename part part:fluid_out-2- fluid_out-2-
+/objects/labels/rename part part:ttc-1- ttc-1-
+/objects/labels/rename part part:ttc-2- ttc-2-
+/objects/labels/rename part part:ttc-3- ttc-3-
+/objects/labels/rename part part:ttc-4- ttc-4-
+/objects/labels/rename part part:embed-1- embed-1- 
+/objects/labels/rename part part:embed-2- embed-2- 
+/objects/labels/rename part part:embed-3- embed-3- 
+/objects/labels/rename part part:embed-4- embed-4- 
+/objects/labels/rename part part:ltcc ltcc
+/objects/volumetric-regions/compute part no
+/objects/volumetric-regions/change-type part fluid* () fluid
+/objects/volumetric-regions/scoped-prism/set/create scoped-control aspect-ratio 10 5 1.2 part fluid-regions solid-fluid-interface *
+/mesh/auto-mesh part yes scoped pyramids poly yes
+/mesh/modify/auto-node-move * () * () 0.7 50 100 yes 10
+/file/write-mesh 输出
+/report/mesh-statistics 统计
+/exit ok
 
