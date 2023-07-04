@@ -15,9 +15,9 @@
 
 Author       : 焱铭
 Date         : 2022-08-25 19:20:39 +0800
-LastEditTime : 2023-07-04 10:58:16 +0800
+LastEditTime : 2023-07-04 14:58:20 +0800
 Github       : https://github.com/YanMing-lxb/
-FilePath     : \CFD-automatic-simulation-software\main.py
+FilePath     : \CFD-Automatic-Simulation-Software\main.py
 Description  : 
 ------------------------------------------------------------------------
 '''
@@ -945,7 +945,7 @@ layout = [all_layout]
 
 
 # 3) 创建窗口
-window = sg.Window('CFD自动化仿真软件 by YanMing', layout, icon='YM-Resource/CFD自动化仿真软件.ico', finalize=True)
+window = sg.Window('CFD Automatic Simulation Software by YanMing', layout, icon='CASS-Resource/CASS-logo.ico', finalize=True)
 
 # 4) 事件循环
 while True:
@@ -1074,12 +1074,12 @@ while True:
 window.close()
 
 # 日志 
-# V4.10  2022/8/18 19:44
+# V4.1.0  2022/8/18 19:44
 # 优化了即时后处理模块，解决了只能按照从1开始执行后处理的问题，以后可以完美即时运行后
 # 处理了。
 
-# V4.11 2022/8/19 9:47
+# V4.1.1 2022/8/19 9:47
 # 修改了即时后处理程序，检索匹配关键序号不对的bug。 
 
-# V4.12 2022/8/25 19:50
+# V4.1.2 2022/8/25 19:50
 # 发现CFDPost在读取excel时会自动将数字用科学计数法保留两位小数，这导致数据的精度不够。因此做了一些改动，将原先的全部后处理完再转移数据的形式，改为每处理完一组就进行数据转移至实验规划表。

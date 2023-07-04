@@ -15,9 +15,9 @@
 
 Author       : 焱铭
 Date         : 2023-07-03 16:04:04 +0800
-LastEditTime : 2023-07-04 11:30:17 +0800
+LastEditTime : 2023-07-04 14:57:16 +0800
 Github       : https://github.com/YanMing-lxb/
-FilePath     : \CFD-automatic-simulation-software\build.py
+FilePath     : \CFD-Automatic-Simulation-Software\build.py
 Description  : 
 ------------------------------------------------------------------------
 '''
@@ -65,9 +65,9 @@ def build_pyinstaller(exe_name, resource, icon_pic):
 
 if __name__ == '__main__':
     # 设置参数
-    file_name = 'CFD自动化仿真软件 v4.12 by YanMing'  # 可执行文件名
-    resource = "YM-Resource" # 资源文件夹名
-    icon_pic = 'CFD自动化仿真软件.ico'  # 图标文件名
+    file_name = 'CFD Automatic Simulation Software v4.1.2 by YanMing'  # 可执行文件名
+    resource = "CASS-Resource" # 资源文件夹名
+    icon_pic = 'CASS-logo.ico'  # 图标文件名
     des_folder = 'Releases'  # 将生成的exe移动到的目标文件夹名
     
 
