@@ -15,7 +15,7 @@
 
 Author       : 焱铭
 Date         : 2022-08-25 19:20:39 +0800
-LastEditTime : 2023-07-04 15:41:21 +0800
+LastEditTime : 2023-07-05 16:38:25 +0800
 Github       : https://github.com/YanMing-lxb/
 FilePath     : \CFD-Automatic-Simulation-Software\main.py
 Description  : 
@@ -1054,8 +1054,7 @@ while True:
                 'Mesh生成'] is False and values['Fluent求解'] is False and values['Post处理'] is False:
                 threading.Thread(target=Class_Run.CFD_Post_Script, daemon=True, ).start()
             else:
-                window['state_print'].print("输入组合错误,请点击清除后重新输入!!!   ╮(๑・́ ₃・̀๑)╭", text_color='red',
-                                            background_color='white', )
+                window['state_print'].print(f'Error： 文件被占用，清除失败！\n地址：{os.path.dirname(sys.argv[0])}\n请解除！', text_color='red')
 
     if event == '清除':
         window['运行'].update(disabled=False, )
