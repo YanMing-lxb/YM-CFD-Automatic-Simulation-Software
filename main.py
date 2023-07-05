@@ -15,7 +15,7 @@
 
 Author       : 焱铭
 Date         : 2022-08-25 19:20:39 +0800
-LastEditTime : 2023-07-05 16:38:25 +0800
+LastEditTime : 2023-07-05 16:46:40 +0800
 Github       : https://github.com/YanMing-lxb/
 FilePath     : \CFD-Automatic-Simulation-Software\main.py
 Description  : 
@@ -1081,4 +1081,4 @@ window.close()
 # 发现CFDPost在读取excel时会自动将数字用科学计数法保留两位小数，这导致数据的精度不够。因此做了一些改动，将原先的全部后处理完再转移数据的形式，改为每处理完一组就进行数据转移至实验规划表。
 
 # V4.1.3 2023/6/10 20:48
-# 尝试解决Fluent 2023R1 打印不出控制台信息的问题 主要修改subprocess.Popen命令
+# 尝试解决Fluent 2023R1 打印不出控制台信息的问题 主要修改subprocess.Popen命令，修改失败
