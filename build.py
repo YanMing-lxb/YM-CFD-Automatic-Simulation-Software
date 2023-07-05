@@ -15,7 +15,7 @@
 
 Author       : 焱铭
 Date         : 2023-07-03 16:04:04 +0800
-LastEditTime : 2023-07-05 16:23:07 +0800
+LastEditTime : 2023-07-05 16:44:30 +0800
 Github       : https://github.com/YanMing-lxb/
 FilePath     : \CFD-Automatic-Simulation-Software\build.py
 Description  : 
@@ -25,6 +25,16 @@ Description  :
 from PyInstaller.__main__ import run
 import shutil
 import os
+
+def check_and_create_folder():
+    root_dir = os.getcwd()  # 获取当前工作目录
+    releases_dir = os.path.join(root_dir, "Releases")
+
+    if not os.path.exists(releases_dir):
+        os.makedirs(releases_dir)
+        print("成功创建 Releases 文件夹")
+    else:
+        print("Releases 文件夹已存在")
 
 def del_file(file):
     # 检查文件是否存在
@@ -71,7 +81,8 @@ if __name__ == '__main__':
     icon_pic = 'CASS-logo.ico'  # 图标文件名
     des_folder = 'Releases'  # 将生成的exe移动到的目标文件夹名
     
-
+    check_and_create_folder() # 检查是否存在“Releases”文件夹，没有就创建
+    
     build_pyinstaller(file_name, resource, icon_pic)  # 调用方法编译生成可执行文件
 
     move_file('dist', file_name, des_folder)  # 移动文件到目标文件夹
