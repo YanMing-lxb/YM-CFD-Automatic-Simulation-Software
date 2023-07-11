@@ -15,7 +15,7 @@
 
 Author       : 焱铭
 Date         : 2022-08-25 19:20:39 +0800
-LastEditTime : 2023-07-05 16:46:40 +0800
+LastEditTime : 2023-07-11 12:27:05 +0800
 Github       : https://github.com/YanMing-lxb/
 FilePath     : \CFD-Automatic-Simulation-Software\main.py
 Description  : 
@@ -526,40 +526,49 @@ class Calculate(object):
         self.Search_Scripts(self.scripts_path, ".log", "Mesh-", 0)  # 检索fluent meshing脚本，并添加进数组中
         for i in range(len(self.scripts_list[0])):
             progress("网格划分", len(self.scripts_list[0]), i + 1)
-            command = f"fluent 3d -meshing -tm{self.core_num} -t{self.core_num} -g -wait -i {self.scripts_list[0][i]}"
-            com = str(command + " &&exit")
-            a = subprocess.Popen(com, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                 stdin=subprocess.DEVNULL, text=True)
-            for u in iter(a.stdout.readline, b""):
-                window['state_print'].print('{:0>2d}* '.format(i + 1) + u.decode().strip())
+            command = f"fluent 3d -meshing -tm{self.core_num} -t{self.core_num} -g -wait -i {self.scripts_list[0][i]} &&exit"
+            a = subprocess.Popen(command, 
+                                shell=True, 
+                                stdout=subprocess.PIPE, 
+                                stderr=subprocess.STDOUT,
+                                encoding=sys.getdefaultencoding(), # 使用默认编码
+                                errors='replace'  # 替换无法解码的字符
+                                )  # 此时打开的a是一个对象，如果直接打印的话是对象内存地址
+            while a.poll() is None:
+                line = a.stdout.readline()
+                window['state_print'].print('{:0>2d}* '.format(i + 1) + line)
             name = os.path.basename(self.scripts_list[0][i])
             name = name.split('.m')[0]
-            sg.cprint('已生成： ' + str(name) + '.msh 文件')
-            window['state_print'].print('已生成： ' + str(name) + '.msh 文件', text_color='red')
+            sg.cprint(f'已生成：{name}.msh 文件')
+            window['state_print'].print(f'已生成：{name}.msh 文件', text_color='red')
             window['state_print'].print(" ")
 
     # 运行Fluent脚本
     def Fluent(self):
-        if os.path.exists(self.scripts_path + '/Fluent终端记录.txt'):
-            os.remove(self.scripts_path + '/Fluent终端记录.txt')
-        open(self.scripts_path + '/Fluent终端记录.txt', 'w').close()
+        if os.path.exists(f'{self.scripts_path}/Fluent终端记录.txt'):
+            os.remove(f'{self.scripts_path}/Fluent终端记录.txt')
+        open(f'{self.scripts_path}/Fluent终端记录.txt', 'w').close()
         self.Search_Scripts(self.scripts_path, ".log", "Fluent-", 1)  # 检索fluent脚本，并添加进数组中
         for i in range(len(self.scripts_list[1])):
             progress("求解计算", len(self.scripts_list[1]), i + 1)
-            command = f"fluent 3d -t{self.core_num} -g -wait -i {self.scripts_list[1][i]}" # 3ddp为双精度
-            com = str(command + " &&exit")
-            a = subprocess.Popen(com, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                 stdin=subprocess.DEVNULL, text=True)  # 此时打开的a是一个对象，如果直接打印的话是对象内存地址
-            terminal_record = open(self.scripts_path + '/Fluent终端记录.txt', 'a+', encoding='utf-8')
-            for u in iter(a.stdout.readline, b""):
-                window['state_print'].print('{:0>2d}* '.format(i + 1) + u.decode().strip())
-                txt = str(u.decode().strip())
-                terminal_record.write(txt + "\n")
+            command = f"fluent 3d -t{self.core_num} -g -wait -i {self.scripts_list[1][i]} &&exit" # 3ddp为双精度
+            a = subprocess.Popen(command, 
+                                shell=True, 
+                                stdout=subprocess.PIPE, 
+                                stderr=subprocess.STDOUT,
+                                encoding=sys.getdefaultencoding(), # 使用默认编码
+                                errors='replace'  # 替换无法解码的字符
+                                )  # 此时打开的a是一个对象，如果直接打印的话是对象内存地址
+            terminal_record = open(f'{self.scripts_path}/Fluent终端记录.txt', 'a+', encoding='utf-8')
+            while a.poll() is None:
+                line = a.stdout.readline()
+                window['state_print'].print('{:0>2d}* '.format(i + 1) + line)
+                terminal_record.write(line + "\n")
             terminal_record.close()
             name = os.path.basename(self.scripts_list[1][i])
             name = name.split('.')[0]
-            sg.cprint('已生成： ' + name + '.dat 文件 与 ' + name + '.cas 文件')
-            window['state_print'].print('已生成： ' + name + '.dat 文件 与 ' + name + '.cas 文件', text_color='red')
+            sg.cprint(f'已生成： {name} .dat 文件与 {name} .cas 文件')
+            window['state_print'].print(f'已生成：{name}.dat 文件与{name}.cas 文件', text_color='red')
             window['state_print'].print(" ")
             
             
@@ -570,18 +579,22 @@ class Calculate(object):
         self.Search_Scripts(self.scripts_path, ".cse", "CFD_Post-", 2)  # 检索cfd_post脚本，并添加进数组中
         for i in range(len(self.scripts_list[2])):
             (filename,extension) = os.path.splitext(self.scripts_list[2][i])
-            print(filename)
             pattern_num=int(filename.split('Post-')[1])
-            window['state_print'].print("********** 开始进行第" + str(pattern_num) + "组后处理 **********", text_color='red')
+            window['state_print'].print(f"********** 开始进行第{pattern_num}组后处理 **********", text_color='red')
             progress("Post后处理", len(self.scripts_list[2]), i+1)
-            command = "cfdpost -batch " + self.scripts_list[2][i]
-            com = str(command + " &&exit")
-            a = subprocess.Popen(com, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                 stdin=subprocess.DEVNULL)  # 此时打开的a是一个对象，如果直接打印的话是对象内存地址
-            for u in iter(a.stdout.readline, b""):
-                window['state_print'].print('{:0>2d}* '.format(pattern_num) + u.decode().strip())
-            sg.cprint('已完成 ' + str(pattern_num) + ' 组后处理', text_color='red')
-            window['state_print'].print('已完成 ' + str(pattern_num) + ' 组后处理', text_color='red')
+            command = f"cfdpost -batch {self.scripts_list[2][i]} &&exit"
+            a = subprocess.Popen(command, 
+                                shell=True, 
+                                stdout=subprocess.PIPE, 
+                                stderr=subprocess.STDOUT,
+                                encoding=sys.getdefaultencoding(), # 使用默认编码
+                                errors='replace'  # 替换无法解码的字符
+                                )  # 此时打开的a是一个对象，如果直接打印的话是对象内存地址
+            while a.poll() is None:
+                line = a.stdout.readline()
+                window['state_print'].print('{:0>2d}* '.format(pattern_num) + line)
+            sg.cprint(f'已完成 {str(pattern_num)} 组后处理', text_color='red')
+            window['state_print'].print(f'已完成 {str(pattern_num)} 组后处理', text_color='red')
             self.Revise_csv(pattern_num) # 将结果文件数据转移到实验规划表中
             window['state_print'].print(" ")
         
@@ -589,17 +602,22 @@ class Calculate(object):
     # 即时运行CFD_Post脚本子方法 #
     def CFD_Post_Alone(self, num, all_num):
         window['state_print'].print("********** 开始进行第" + str(num+1) + "组后处理 **********", text_color='red')
-        command = "cfdpost -batch " + self.scripts_list[2][num]
-        com = str(command + " &&exit")
-        a = subprocess.Popen(com, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                             stdin=subprocess.DEVNULL)  # 此时打开的a是一个对象，如果直接打印的话是对象内存地址
-        for u in iter(a.stdout.readline, b""):
-            window['state_print'].print('{:0>2d}* '.format(num+1) + u.decode().strip())
-        sg.cprint("********** 已完成第 " + str(num+1) + " 组后处理 **********", text_color='red')
+        command = f"cfdpost -batch {self.scripts_list[2][num]} &&exit"
+        a = subprocess.Popen(command, 
+                                shell=True, 
+                                stdout=subprocess.PIPE, 
+                                stderr=subprocess.STDOUT,
+                                encoding=sys.getdefaultencoding(), # 使用默认编码
+                                errors='replace'  # 替换无法解码的字符
+                                )  # 此时打开的a是一个对象，如果直接打印的话是对象内存地址
+        while a.poll() is None:
+            line = a.stdout.readline()
+            window['state_print'].print('{:0>2d}* '.format(num+1) + line)
+        sg.cprint(f"********** 已完成第 {str(num+1)} 组后处理 **********", text_color='red')
         window['state_print'].print("{:0>2d}组数据已写入Result.csv".format(num+1), text_color='red')
         window['state_print'].print(" ")
         self.Revise_csv(num+1) # 将结果文件保存到实验规划表中
-        window['state_print'].print("已完成： 第" + str(num+1) + " 组后处理", text_color='red')
+        window['state_print'].print(f"已完成： 第 {str(num+1)} 组后处理", text_color='red')
         window['state_print'].print(" ")
         window['state_print'].print("----------------------------------------------------------")
         window['state_print'].print(" ")
@@ -1082,3 +1100,6 @@ window.close()
 
 # V4.1.3 2023/6/10 20:48
 # 尝试解决Fluent 2023R1 打印不出控制台信息的问题 主要修改subprocess.Popen命令，修改失败
+
+# 2023/7/11 12:30
+# 解决了Fluent 2023R1 打印不出控制台信息的问题 原因是subprocess.Popen实时打印的问题，具体来说应该是编码问题
