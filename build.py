@@ -75,7 +75,7 @@ def build_pyinstaller(exe_name, resource, icon_pic):
 
 if __name__ == '__main__':
     # 设置参数
-    version = 'v4.1.3' # 软件版本
+    version = 'v4.2.0' # 软件版本
     file_name = f'CFD Automatic Simulation Software {version} by YanMing'  # 可执行文件名
     resource = "CASS-Resource" # 资源文件夹名
     icon_pic = 'CASS-logo.ico'  # 图标文件名
