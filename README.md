@@ -17,13 +17,13 @@
  * Date         : 2023-07-04 12:14:38 +0800
  * LastEditTime : 2023-07-04 13:15:55 +0800
  * Github       : https://github.com/YanMing-lxb/
- * FilePath     : \CFD-Automatic-Simulation-Software\README.md
+ * FilePath     : \YM-CFD-Automatic-Simulation-Software\README.md
  * Description  : 
  * ------------------------------------------------------------------------
  -->
 
-# CFD-Automatic-Simulation-Software
-[![](https://img.shields.io/github/issues/YanMing-lxb/CFD-Automatic-Simulation-Software)](https://github.com/YanMing-lxb/CFD-Automatic-Simulation-Software/issues)  ![Downloads latest release](https://img.shields.io/github/downloads/YanMing-lxb/CFD-Automatic-Simulation-Software/latest/total?color=blueviolet)
+# YM-CFD-Automatic-Simulation-Software
+[![](https://img.shields.io/github/issues/YanMing-lxb/YM-CFD-Automatic-Simulation-Software)](https://github.com/YanMing-lxb/YM-CFD-Automatic-Simulation-Software/issues)  ![Downloads latest release](https://img.shields.io/github/downloads/YanMing-lxb/YM-CFD-Automatic-Simulation-Software/latest/total?color=blueviolet)
 
 ***点个⭐支持一下！***
 ## 使用前提
@@ -45,7 +45,7 @@
 1. Fluent Meshing与Fluent的脚本均为TUI命令编写，关于TUI命令的说明文档可在Fluent中的`Help`  ⇒ `User's Guide Contents`⇒ `III. Solution Mode `⇒`2. Text User Interface (TUI) `⇒`Fluent Text Command List `中找到(如英语不好也可使用翻译软件通过翻译页面进行阅读)；
 2. CFD Post提供脚本录制功能，请自行搜索如何录制CFD Post的脚本；
 
-本项目提供用于稳态共轭传热的Fluent Meshing、Fluent、CFD Post脚本[**模板示例**](https://github.com/YanMing-lxb/CFD-Automatic-Simulation-Software/tree/main/Script_template)；
+本项目提供用于稳态共轭传热的Fluent Meshing、Fluent、CFD Post脚本[**模板示例**](https://github.com/YanMing-lxb/YM-CFD-Automatic-Simulation-Software/tree/main/Script_template)；
 
 > ps: 作者在使用该软件时，CFD Post仅作为数据提取工具，等值线图、流线图均采用Tecplot 360绘制(该用法仅供参考！)
 
@@ -66,7 +66,7 @@
     - fluent_meshing中：输入、输出
     - cfd_post中：输入、输出、温度单位、序号、结果文件路径
 5. 模板脚本名称为固定名称分别为：fluent.txt（utf-8）、fluent_meshing.txt（utf-8）、cfd_post.cse（ansi）（可以文本文档打开编辑）
->ps: 要求cfd_post.cse文件为cfd_post生成的文件否则会出现编码错误(可在[**模板示例**](https://github.com/YanMing-lxb/CFD-Automatic-Simulation-Software/tree/main/Script_template)的基础上改)。
+>ps: 要求cfd_post.cse文件为cfd_post生成的文件否则会出现编码错误(可在[**模板示例**](https://github.com/YanMing-lxb/YM-CFD-Automatic-Simulation-Software/tree/main/Script_template)的基础上改)。
 6. 几何模型无法自动生成，因此需要DM导出的几何模型其后缀为.agdb。
 7. 文件命名规则：
     - 几何模型：Geom-几何变量1-几何变量2.agdb,依次往下类推（如：当几何变量中的布局为1，当量直径为0.5，特征长度为7，此时几何模型命名应为：Geom-1-0.5-7.agdb）
