@@ -1,2 +1,2 @@
 all: 
-	@python -m build.py
+	@python -m build
