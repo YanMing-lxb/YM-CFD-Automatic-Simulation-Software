@@ -161,8 +161,6 @@ while True:
 
 window.close()
 
-# 生成 requirements.txt文件命令 pipreqs . --force
-
 # 日志 
 # V4.1.0  2022/8/18 19:44
 # 优化了即时后处理模块，解决了只能按照从1开始执行后处理的问题，以后可以完美即时运行后

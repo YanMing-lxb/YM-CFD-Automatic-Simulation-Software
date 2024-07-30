@@ -16,7 +16,7 @@
  -----------------------------------------------------------------------
 Author       : 焱铭
 Date         : 2023-07-25 10:15:12 +0800
-LastEditTime : 2024-07-30 15:15:12 +0800
+LastEditTime : 2024-07-30 19:39:56 +0800
 Github       : https://github.com/YanMing-lxb/
 FilePath     : /YM-CFD-Automatic-Simulation-Software/build.py
 Description  : 
@@ -81,13 +81,13 @@ if __name__ == '__main__':
     resource = "CASS-Resource" # 资源文件夹名
     icon_pic = 'CASS-logo.ico'  # 图标文件名
     des_folder = 'Releases'  # 将生成的exe移动到的目标文件夹名
-    
+     
     check_and_create_folder() # 检查是否存在“Releases”文件夹，没有就创建
-    
+     
     build_pyinstaller(file_name, resource, icon_pic)  # 调用方法编译生成可执行文件
-
+ 
     move_file('dist', file_name, des_folder)  # 移动文件到目标文件夹
-
+ 
     # 删除不需要的文件和文件夹
     shutil.rmtree('dist')  # 删除 dist 文件夹
     shutil.rmtree('build')  # 删除 build 文件夹
