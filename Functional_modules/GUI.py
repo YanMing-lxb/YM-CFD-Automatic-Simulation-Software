@@ -15,10 +15,10 @@
 
  -----------------------------------------------------------------------
 Author       : 焱铭
-Date         : 2023-07-11 13:03:38 +0800
-LastEditTime : 2023-07-11 14:50:53 +0800
+Date         : 2023-07-25 10:15:12 +0800
+LastEditTime : 2024-07-30 14:57:48 +0800
 Github       : https://github.com/YanMing-lxb/
-FilePath     : \CFD-Automatic-Simulation-Software\GUI.py
+FilePath     : /YM-CFD-Automatic-Simulation-Software/Functional_modules/GUI.py
 Description  : 
  -----------------------------------------------------------------------
 '''

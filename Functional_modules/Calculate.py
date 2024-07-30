@@ -15,13 +15,14 @@
 
  -----------------------------------------------------------------------
 Author       : 焱铭
-Date         : 2023-07-11 14:20:06 +0800
-LastEditTime : 2023-07-11 17:53:05 +0800
+Date         : 2023-07-25 10:15:12 +0800
+LastEditTime : 2024-07-30 14:56:58 +0800
 Github       : https://github.com/YanMing-lxb/
-FilePath     : \CFD-Automatic-Simulation-Software\Functional_modules\Calculate.py
+FilePath     : /YM-CFD-Automatic-Simulation-Software/Functional_modules/Calculate.py
 Description  : 
  -----------------------------------------------------------------------
 '''
+
 import re
 import os
 import sys

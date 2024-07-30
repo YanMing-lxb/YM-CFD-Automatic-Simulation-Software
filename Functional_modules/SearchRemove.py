@@ -15,13 +15,14 @@
 
  -----------------------------------------------------------------------
 Author       : 焱铭
-Date         : 2023-07-11 15:05:49 +0800
-LastEditTime : 2023-07-11 15:07:17 +0800
+Date         : 2023-07-25 10:15:12 +0800
+LastEditTime : 2024-07-30 15:14:20 +0800
 Github       : https://github.com/YanMing-lxb/
-FilePath     : \CFD-Automatic-Simulation-Software\SearchRemove.py
+FilePath     : /YM-CFD-Automatic-Simulation-Software/Functional_modules/SearchRemove.py
 Description  : 
  -----------------------------------------------------------------------
 '''
+
 import os
 
 #  搜索并删除文件

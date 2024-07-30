@@ -15,19 +15,13 @@
 
  -----------------------------------------------------------------------
 Author       : 焱铭
-Date         : 2023-07-11 13:17:18 +0800
-LastEditTime : 2023-07-11 20:45:48 +0800
+Date         : 2023-07-25 10:15:12 +0800
+LastEditTime : 2024-07-30 15:14:09 +0800
 Github       : https://github.com/YanMing-lxb/
-FilePath     : \CFD-Automatic-Simulation-Software\Functional_modules\Script.py
+FilePath     : /YM-CFD-Automatic-Simulation-Software/Functional_modules/Script.py
 Description  : 
  -----------------------------------------------------------------------
 '''
-
-import os
-import PySimpleGUI as sg
-from Functional_modules.Progress import Progress
-
-
 
 #  创建脚本文件
 class Script(Progress):

@@ -15,13 +15,14 @@
 
  -----------------------------------------------------------------------
 Author       : 焱铭
-Date         : 2023-07-11 14:54:01 +0800
-LastEditTime : 2023-07-11 20:43:34 +0800
+Date         : 2023-07-25 10:15:12 +0800
+LastEditTime : 2024-07-30 15:13:59 +0800
 Github       : https://github.com/YanMing-lxb/
-FilePath     : \CFD-Automatic-Simulation-Software\Functional_modules\Run.py
+FilePath     : /YM-CFD-Automatic-Simulation-Software/Functional_modules/Run.py
 Description  : 
  -----------------------------------------------------------------------
 '''
+
 import time
 import threading
 import PySimpleGUI as sg
